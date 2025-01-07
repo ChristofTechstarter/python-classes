@@ -4,8 +4,8 @@
 class Zutat:
     def __init__(self, name, kalorien, zeit):
         self.name = name
-        self.kalorien = kalorien
-        self.zeit = zeit
+        self.kalorien_pro_100g = kalorien
+        self.zubereitungszeit = zeit
 
 
 # Aufgabe 1.2
@@ -23,14 +23,14 @@ class Rezept:
     def kalorien(self):
         kalorien_counter = 0
         for zutat in self.zutatenliste:
-            kalorien_counter += zutat.kalorien
+            kalorien_counter += zutat.kalorien_pro_100g
         print(f"Die Gesamtkalorien betragen: {kalorien_counter} kcal!")
 
     def kochzeit(self):
         kochzeit = 0
         for zutat in self.zutatenliste:
-            if zutat.zeit > kochzeit:
-                kochzeit = zutat.zeit
+            if zutat.zubereitungszeit > kochzeit:
+                kochzeit = zutat.zubereitungszeit
         print(f"Die Kochzeit beträgt {kochzeit} Minuten!")
 
     def rezept_anzeigen(self):
